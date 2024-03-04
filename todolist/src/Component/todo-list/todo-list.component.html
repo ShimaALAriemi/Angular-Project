@@ -1,0 +1,22 @@
+<div *ngIf="visibleItem.length === 0; else showItem">
+    There are no TodoList to  display
+  </div>
+ 
+  <ng-template #showItem>
+    <ul class="wish-list">
+      <li *ngFor="let item of visibleItem; index as i">
+          <div class="form-check"> 
+            <label class="form-check-label"> 
+              <input 
+              class="checkbox" 
+              type="checkbox" 
+              [checked]="item.isComplete"
+              [attr.data-index] = "i"
+              (click)="toggelItem(item)">
+               {{item.todoText}}
+               
+            </label> 
+          </div>
+      </li>
+    </ul>
+  </ng-template>
